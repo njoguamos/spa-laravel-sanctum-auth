@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import type { Input } from "valibot";
 import { email, maxLength, minLength, object, string } from "valibot";
 import { useNavigate } from "@builder.io/qwik-city";
+import { useForm, valiForm$ } from "@modular-forms/qwik";
 
 // noinspection JSUnresolvedReference
 const endpoint = import.meta.env.PUBLIC_API_ENDPOINT;
@@ -18,6 +19,11 @@ const LoginSchema = object({
 type LoginForm = Input<typeof LoginSchema>;
 
 export default component$(() => {
+  const [loginForm, { Form, Field }] = useForm<LoginForm>({
+    loader: { value: { email: "", password: "" } },
+    validate: valiForm$(LoginSchema),
+  });
+
   const nav = useNavigate();
 
   return <div>New route works.</div>;
