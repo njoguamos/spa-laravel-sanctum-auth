@@ -65,7 +65,7 @@ export default component$(() => {
     });
 
     if (response.ok) {
-      nav("/dash", {
+      nav("/", {
         replaceState: true,
         forceReload: true,
       });
