@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
-test('that true is true', function () {
+test('example', function () {
     expect(true)->toBeTrue();
 });
